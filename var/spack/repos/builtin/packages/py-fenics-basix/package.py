@@ -11,7 +11,7 @@ class PyFenicsBasix(CMakePackage):
     environment"""
 
     homepage = "https://github.com/FEniCS/basix"
-    git = "https://github.com/FEniCS/basix.git"
+    git = "https://github.com/draenog/basix.git"
     maintainers = ["chrisrichardson", "mscroggs"]
 
     version("main", branch="main")
