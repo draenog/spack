@@ -6,7 +6,7 @@
 from spack import *
 
 
-class PyFenicsBasix(PythonPackage):
+class PyFenicsBasix(CMakePackage):
     """Python basis evaluation library for Next generation FEniCS problem solving
     environment"""
 
@@ -23,4 +23,4 @@ class PyFenicsBasix(PythonPackage):
     depends_on("py-scikit-build", type="build")
     depends_on("py-pybind11", type="build")
 
-    phases = ['build', 'install']
+    extends('python')

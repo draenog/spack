@@ -52,3 +52,6 @@ class FenicsDolfinx(CMakePackage):
             "-DPython3_FIND_STRATEGY=LOCATION",
         ]
         return args
+
+    def setup_environment(self, spack_env, run_env):
+        spack_env.set('BASIX_PREFIX_DIR', self.spec['py-fenics-basix'].prefix)
