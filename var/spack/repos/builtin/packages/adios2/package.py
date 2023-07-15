@@ -82,6 +82,7 @@ class Adios2(CMakePackage, CudaPackage):
         when="@2.9:",
         description="Enable support for S3 compatible storage using AWS SDK's S3 module",
     )
+    variant("catalyst2", default=False, description="Enable catalyst2 support")
 
     # Optional language bindings, C++11 and C always provided
     variant("cuda", default=False, when="@2.8:", description="Enable CUDA support")
@@ -116,6 +117,7 @@ class Adios2(CMakePackage, CudaPackage):
         # depends_on('bison', when='+sst')     # optional in FFS, broken package
         # depends_on('flex', when='+sst')      # optional in FFS, depends on BISON
 
+    depends_on("libcatalyst", when="+catalyst2")
     depends_on("mpi", when="+mpi")
     depends_on("libzmq", when="+dataman")
     depends_on("dataspaces@1.8.0:", when="+dataspaces")
@@ -202,6 +204,7 @@ class Adios2(CMakePackage, CudaPackage):
             from_variant("ADIOS2_USE_ZFP", "zfp"),
             from_variant("ADIOS2_USE_CUDA", "cuda"),
             from_variant("ADIOS2_USE_LIBPRESSIO", "libpressio"),
+            from_variant("ADIOS2_USE_Catalyst", "catalyst2"),
             self.define("BUILD_TESTING", self.run_tests),
             self.define("ADIOS2_BUILD_EXAMPLES", False),
             self.define("ADIOS2_USE_Endian_Reverse", True),
