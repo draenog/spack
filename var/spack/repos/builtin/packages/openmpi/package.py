@@ -1210,7 +1210,7 @@ with '-Wl,-commons,use_dylibs' and without
         #
 
         if spec.satisfies("@5.0.0:"):
-            config_args.append("CFLAGS=-DYY_BUF_SIZE=1048576")
+            config_args.append("CFLAGS=-DYY_BUF_SIZE=1048576 -Wno-int-conversion")
 
         #
         # disable romio for 5.0.0 or newer if using Intel OneAPI owing to a problem
