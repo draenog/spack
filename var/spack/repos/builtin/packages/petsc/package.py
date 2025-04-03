@@ -747,6 +747,8 @@ class Petsc(Package, CudaPackage, ROCmPackage):
         if "+hpddm" in spec:
             options.append("--download-hpddm")
 
+        options.append("--with-cxx-dialect=C++14")
+        options.append("--with-hip-dialect=C++14")
         return options
 
     def revert_kokkos_nvcc_wrapper(self):
