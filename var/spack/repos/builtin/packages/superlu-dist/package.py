@@ -96,6 +96,7 @@ class SuperluDist(CMakePackage, CudaPackage, ROCmPackage):
 
         append_define("CMAKE_C_COMPILER", spec["mpi"].mpicc)
         append_define("CMAKE_CXX_COMPILER", spec["mpi"].mpicxx)
+        append_define("CMAKE_Fortran_COMPILER", spec["mpi"].prefix.bin.mpif90)
         append_define("CMAKE_INSTALL_LIBDIR", self.prefix.lib)
         append_define("CMAKE_INSTALL_BINDIR", self.prefix.bin)
         append_define("TPL_BLAS_LIBRARIES", spec["blas"].libs.ld_flags)
